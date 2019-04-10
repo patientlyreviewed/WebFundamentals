@@ -6,8 +6,6 @@ description: The main uses of the Chrome DevTools Console are logging messages a
 {# wf_published_on: 2019-04-09 #}
 {# wf_blink_components: Platform>DevTools #}
 
-[GS]: /web/tools/chrome-devtools/console/get-started
-
 # Console Overview {: .page-title }
 
 {% include "web/_shared/contributors/kaycebasques.html" %}
@@ -17,8 +15,11 @@ The Console has 2 main uses: [viewing logged messages](#view) and [running JavaS
 
 ## Viewing logged messages {: #view }
 
-Web developers often log message to the Console to make sure that their JavaScript is working as expected. For example,
-suppose that you're in the process of writing the HTML and JavaScript for a page. Here's your code:
+Web developers often log message to the Console to make sure that their JavaScript is working as expected.
+To log a message, you insert an expression like `console.log('Hello, Console!')` into your JavaScript.
+When the browser executes your JavaScript and sees an expression like that, it knows that it's supposed to
+log the message to the Console. For example, suppose that you're in the process of writing the HTML and
+JavaScript for a page. Here's your code:
 
     <!doctype html>
     <html>
@@ -35,16 +36,16 @@ suppose that you're in the process of writing the HTML and JavaScript for a page
           const artists = [
             {
               first: 'René',
-              last: 'Magritte',
+              last: 'Magritte'
             },
             {
               first: 'Chaim',
-              last: 'Soutine',
+              last: 'Soutine'
             },
             {
               first: 'Henri',
-              last: 'Matisse',
-            },
+              last: 'Matisse'
+            }
           ];
           console.table(artists);
           setTimeout(() => {
@@ -55,24 +56,61 @@ suppose that you're in the process of writing the HTML and JavaScript for a page
       </body>
     </html>
 
-Figure X shows what the Console looks like after loading the page and waiting 3 seconds.
+**Figure 1** shows what the Console looks like after loading the page and waiting 3 seconds. Try to figure out which
+line of code caused each message to get logged.
 
-Web developers log messages like this for 2 general reasons:
+<figure>
+  <img src="/web/tools/chrome-devtools/console/images/overviewlogging.png"
+       alt="The Console panel."/>
+  <figcaption>
+    <b>Figure 1</b>. The Console panel.
+  </figcaption>
+</figure>
 
-* Making sure that the code is executing in the right order.
+Web developers log messages for 2 general reasons:
+
+* Making sure that code is executing in the right order.
 * Inspecting the values of variables at a certain moment in time.
 
-To log messages to the Console, all you need to do is insert expressions like `console.log('Loading!')` into
-your code. See [Get Started With Logging Messages](/web/tools/chrome-devtools/console/log) to learn more
-about logging. See the [Console API Reference](/web/tools/chrome-devtools/console/api) to browse the full list
+See [Get Started With Logging Messages](/web/tools/chrome-devtools/console/log) to get hands-on experience
+with logging. See the [Console API Reference](/web/tools/chrome-devtools/console/api) to browse the full list
 of `console` methods. The main difference between the methods is how they display the data
 that you're logging.
 
 ## Running JavaScript {: #javascript }
 
-## Next steps {: #CTA }
+The Console is also a [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop){: .external }.
+You can run JavaScript in the Console to interact with the page that you're inspecting. For example, **Figure 2**
+shows the Console next to the DevTools homepage, and **Figure 3** shows that same page after using the Console
+to change the page's title.
 
-See [Get Started][GS] to get hands-on practice with the Console.
+<figure>
+  <img src="/web/tools/chrome-devtools/console/images/overviewjs1.png"
+       alt="The Console panel next to the DevTools homepage."/>
+  <figcaption>
+    <b>Figure 2</b>. The Console panel next to the DevTools homepage.
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="/web/tools/chrome-devtools/console/images/overviewjs2.png"
+       alt="Using the Console to change the page's title."/>
+  <figcaption>
+    <b>Figure 3</b>. Using the Console to change the page's title.
+  </figcaption>
+</figure>
+
+[window]: https://developer.mozilla.org/en-US/docs/Web/API/Window
+[map]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+Modifying the page from the Console is possible because the Console has full access to the 
+page's [`window`][window]{: .external }. You don't have to interact with the page, though. You can 
+use the Console to try out new code that's not related to the page. For example, suppose you just learned
+about the built-in JavaScript Array method [`map()`][map]{: .external }, and you want to experiment with it.
+The Console is a good place to experiment.
+
+See [Get Started With Running JavaScript](/web/tools/chrome-devtools/console/javascript) to get hands-on
+experience with running JavaScript in the Console.
 
 ## Feedback {: #feedback }
 
