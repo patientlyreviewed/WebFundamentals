@@ -2,45 +2,77 @@ project_path: /web/tools/_project.yaml
 book_path: /web/tools/_book.yaml
 description: The main uses of the Chrome DevTools Console are logging messages and running JavaScript.
 
-{# wf_updated_on: 2019-04-03 #}
-{# wf_published_on: 2015-05-10 #}
+{# wf_updated_on: 2019-04-09 #}
+{# wf_published_on: 2019-04-09 #}
 {# wf_blink_components: Platform>DevTools #}
+
+[GS]: /web/tools/chrome-devtools/console/get-started
 
 # Console Overview {: .page-title }
 
 {% include "web/_shared/contributors/kaycebasques.html" %}
 
-This page provides an overview of how the Console in Chrome DevTools can help you develop
-webpages. Web developers mainly use the Console to:
+This page explains how the Chrome DevTools Console makes it easier to develop web pages.
+The Console has 2 main uses: [viewing logged messages](#view) and [running JavaScript](#javascript).
 
-* [View logged messages](#view)
-* [Run JavaScript](#javascript)
+## Viewing logged messages {: #view }
 
-## Open the Console {: #open }
+Web developers often log message to the Console to make sure that their JavaScript is working as expected. For example,
+suppose that you're in the process of writing the HTML and JavaScript for a page. Here's your code:
 
-See [Open the Console](/web/tools/chrome-devtools/console/reference#open).
+    <!doctype html>
+    <html>
+      <head>
+        <title>Console Demo</title>
+      </head>
+      <body>
+        <h1>Hello, World!</h1>
+        <script>
+          console.log('Loading!');
+          const h1 = document.querySelector('h1');
+          console.log(h1.textContent);
+          console.assert(document.querySelector('h2'), 'h2 not found!');
+          const artists = [
+            {
+              first: 'René',
+              last: 'Magritte',
+            },
+            {
+              first: 'Chaim',
+              last: 'Soutine',
+            },
+            {
+              first: 'Henri',
+              last: 'Matisse',
+            },
+          ];
+          console.table(artists);
+          setTimeout(() => {
+            h1.textContent = 'Hello, Console!';
+            console.log(h1.textContent);
+          }, 3000);
+        </script>
+      </body>
+    </html>
 
-## View logged messages {: #view }
+Figure X shows what the Console looks like after loading the page and waiting 3 seconds.
 
-If you insert the following code into your webpage's JavaScript:
+Web developers log messages like this for 2 general reasons:
 
-    console.log('Hello, World!');
+* Making sure that the code is executing in the right order.
+* Inspecting the values of variables at a certain moment in time.
 
-The Chrome DevTools Console displays that message when you run the page:
-
-<figure>
-  <img src="TODO"
-       alt="TODO."/>
-  <figcaption>
-    <b>Figure X</b>. TODO.
-  </figcaption>
-</figure>
-
-See [Console API Reference](/web/tools/chrome-devtools/console/api) to browse the full list
+To log messages to the Console, all you need to do is insert expressions like `console.log('Loading!')` into
+your code. See [Get Started With Logging Messages](/web/tools/chrome-devtools/console/log) to learn more
+about logging. See the [Console API Reference](/web/tools/chrome-devtools/console/api) to browse the full list
 of `console` methods. The main difference between the methods is how they display the data
 that you're logging.
 
-## Run JavaScript {: #javascript }
+## Running JavaScript {: #javascript }
+
+## Next steps {: #CTA }
+
+See [Get Started][GS] to get hands-on practice with the Console.
 
 ## Feedback {: #feedback }
 

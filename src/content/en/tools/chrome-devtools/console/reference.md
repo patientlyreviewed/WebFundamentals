@@ -2,7 +2,7 @@ project_path: /web/tools/_project.yaml
 book_path: /web/tools/_book.yaml
 description: A comprehensive reference on every feature and behavior related to the Console UI in Chrome DevTools.
 
-{# wf_updated_on: 2019-04-04 #}
+{# wf_updated_on: 2019-04-09 #}
 {# wf_published_on: 2015-04-03 #}
 {# wf_blink_components: Platform>DevTools #}
 
@@ -10,13 +10,15 @@ description: A comprehensive reference on every feature and behavior related to 
 
 # Console Reference {: .page-title }
 
+TODO redirect .../console/ to .../console/get-started and update the tutorial
+
 {% include "web/_shared/contributors/kaycebasques.html" %}
 
 [API]: /web/tools/chrome-devtools/console/api
 [utilities]: /web/tools/chrome-devtools/console/utilities
 [tutorial]: /web/tools/chrome-devtools/console/get-started
 
-This page is a comprehensive reference of features related to the Chrome DevTools Console. It assumes
+This page is a reference of features related to the Chrome DevTools Console. It assumes
 that you're already familiar with using the Console to view logged messages and run JavaScript. If not, see
 [Get Started][tutorial].
 
@@ -112,9 +114,24 @@ The links below explain each setting:
 * [**Eager Evaluation**](#eagereval)
 * [**Autocomplete From History**](#autocomplete)
 
+### Open the Console Sidebar {: #sidebar }
+
+[showsidebar]: images/showconsolesidebar.png
+
+Click **Show Console Sidebar** ![Show Console Sidebar][showsidebar]{: .inline-icon } to show the Sidebar,
+which is useful for filtering.
+
+<figure>
+  <img src="/web/tools/chrome-devtools/console/images/sidebar.png"
+       alt="Console Sidebar."/>
+  <figcaption>
+    <b>Figure X</b>. Console Sidebar.
+  </figcaption>
+</figure>
+
 ## View messages {: #view }
 
-This section contains all features related to controlling how messages are presented in the
+This section contains features that change how messages are presented in the
 Console. See [View messages](/web/tools/chrome-devtools/console/get-started#view) for a hands-on
 walkthrough.
 
@@ -171,11 +188,24 @@ To hide network messages:
 1. [Open Console Settings](#settings).
 1. Enable the **Hide Network** checkbox.
 
-### Filter messages {: #filter }
+## Filter messages {: #filter }
 
 There are many ways to filter out messages in the Console.
 
-#### Filter by log level {: #level }
+### Filter out browser messages {: #browser }
+
+[Open the Console Sidebar](#sidebar) and click **User Messages** to only show messages that came from the page's
+JavaScript.
+
+<figure>
+  <img src="/web/tools/chrome-devtools/console/images/usermessages.png"
+       alt="Viewing user messages."/>
+  <figcaption>
+    <b>Figure X</b>. Viewing user messages.
+  </figcaption>
+</figure>
+
+### Filter by log level {: #level }
 
 DevTools assigns each `console.*` method a severity level. There are 4 levels: `Verbose`, `Info`,
 `Warning`, and `Error`. For example, `console.log()` is in the `Info` group, whereas
@@ -195,7 +225,18 @@ Click the **Log Levels** dropdown to enable or disable `Verbose`, `Info`, `Warni
   </figcaption>
 </figure>
 
-#### Filter messages by URL {: #url }
+You can also filter by log level by [opening the Console Sidebar](#sidebar) and then clicking
+**Errors**, **Warnings**, **Info**, or **Verbose**.
+
+<figure>
+  <img src="/web/tools/chrome-devtools/console/images/sidebarwarnings.png"
+       alt="Using the Sidebar to view warnings."/>
+  <figcaption>
+    <b>Figure X</b>. Using the Sidebar to view warnings.
+  </figcaption>
+</figure>
+
+### Filter messages by URL {: #url }
 
 Type `url:` followed by a URL to only view messages that came from that URL.
 After you type `url:` DevTools shows all relevant URLs. Domains also work. For example, if
@@ -222,14 +263,25 @@ Type `-url:` to hide messages from that URL. This is called a negative URL filte
   </figcaption>
 </figure>
 
-#### Filter out messages from different contexts {: #filtercontext }
+You can also show messages from a single URL by [opening the Console Sidebar](#sidebar), expanding the
+**User Messages** section, and then clicking the URL of the script containing the messages you want to focus on.
+
+<figure>
+  <img src="/web/tools/chrome-devtools/console/images/negativeurlfilter.png"
+       alt="Viewing the messages that came from wp-ad.min.js."/>
+  <figcaption>
+    <b>Figure X</b>. Viewing the messages that came from <code>wp-ad.min.js</code>.
+  </figcaption>
+</figure>
+
+### Filter out messages from different contexts {: #filtercontext }
 
 Suppose that you've got an ad on your page. The ad is embedded in an `<iframe>` and is generating
 a lot of messages in your Console. Because this ad is in a different [JavaScript
 context](#context), one way to hide its messages is to [open Console Settings](#settings)
 and enable the **Selected Context Only** checkbox.
 
-#### Filter out messages that don't match a regular expression pattern {: #regex }
+### Filter out messages that don't match a regular expression pattern {: #regex }
 
 Type a regular expression such as `/[gm][ta][mi]/` in the **Filter** text box to filter out
 any messages that don't match that pattern. DevTools checks if the pattern is found in the
@@ -245,7 +297,7 @@ message text or the script that caused the message to be logged.
 
 ## Run JavaScript {: #js }
 
-This section contains all features related to running JavaScript in the Console.
+This section contains features related to running JavaScript in the Console.
 See [Run JavaScript](/web/tools/chrome-devtools/console/get-started#javascript) for a hands-on
 walkthrough.
 
@@ -316,8 +368,7 @@ You can use any of the following workflows to clear the Console:
 [clear]: /web/tools/chrome-devtools/console/images/clearconsole.png
 
 * Click **Clear Console** ![Clear Console][clear]{: .inline-icon }.
-* Right-click a message and then select **Clear Console**. This option isn't visible if you
-  right-click the empty part of the Console, where messages haven't been logged yet.
+* Right-click a message and then select **Clear Console**.
 * Type `clear()` in the Console and then press <kbd>Enter</kbd>.
 * Call `console.clear()` from your webpage's JavaScript.
 * Press <kbd>Control</kbd>+<kbd>L</kbd> while the Console is in focus.
