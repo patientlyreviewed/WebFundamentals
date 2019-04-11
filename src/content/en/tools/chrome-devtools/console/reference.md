@@ -2,15 +2,13 @@ project_path: /web/tools/_project.yaml
 book_path: /web/tools/_book.yaml
 description: A comprehensive reference on every feature and behavior related to the Console UI in Chrome DevTools.
 
-{# wf_updated_on: 2019-04-09 #}
-{# wf_published_on: 2015-04-03 #}
+{# wf_updated_on: 2019-04-11 #}
+{# wf_published_on: 2019-04-09 #}
 {# wf_blink_components: Platform>DevTools #}
 
 [commandmenu]: /web/tools/chrome-devtools/command-menu/
 
 # Console Reference {: .page-title }
-
-TODO redirect .../console/ to .../console/get-started and update the tutorial
 
 {% include "web/_shared/contributors/kaycebasques.html" %}
 
