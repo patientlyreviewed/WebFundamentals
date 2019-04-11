@@ -2,8 +2,8 @@ project_path: /web/tools/_project.yaml
 book_path: /web/tools/_book.yaml
 description: The main uses of the Chrome DevTools Console are logging messages and running JavaScript.
 
-{# wf_updated_on: 2019-04-09 #}
-{# wf_published_on: 2019-04-09 #}
+{# wf_updated_on: 2019-04-11 #}
+{# wf_published_on: 2019-04-11 #}
 {# wf_blink_components: Platform>DevTools #}
 
 # Console Overview {: .page-title }
@@ -15,11 +15,11 @@ The Console has 2 main uses: [viewing logged messages](#view) and [running JavaS
 
 ## Viewing logged messages {: #view }
 
-Web developers often log message to the Console to make sure that their JavaScript is working as expected.
+Web developers often log messages to the Console to make sure that their JavaScript is working as expected.
 To log a message, you insert an expression like `console.log('Hello, Console!')` into your JavaScript.
 When the browser executes your JavaScript and sees an expression like that, it knows that it's supposed to
 log the message to the Console. For example, suppose that you're in the process of writing the HTML and
-JavaScript for a page. Here's your code:
+JavaScript for a page:
 
     <!doctype html>
     <html>
@@ -57,7 +57,7 @@ JavaScript for a page. Here's your code:
     </html>
 
 **Figure 1** shows what the Console looks like after loading the page and waiting 3 seconds. Try to figure out which
-line of code caused each message to get logged.
+lines of code caused the browser to log the messages.
 
 <figure>
   <img src="/web/tools/chrome-devtools/console/images/overviewlogging.png"
@@ -102,12 +102,18 @@ to change the page's title.
 
 [window]: https://developer.mozilla.org/en-US/docs/Web/API/Window
 [map]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+[utils]: /web/tools/chrome-devtools/console/utilities#debugfunction
 
 Modifying the page from the Console is possible because the Console has full access to the 
-page's [`window`][window]{: .external }. You don't have to interact with the page, though. You can 
+page's [`window`][window]{: .external }. DevTools has a few convenience functions that make it easier to
+inspect a page. For example, suppose that your JavaScript contains a function called `hideModal`. Running
+`debug(hideModal)` pauses your code on the first line of `hideModal` the next time that it's called. See
+[Console Utilities API Reference][utils] to see the full list of utility functions.
+
+When you run JavaScript you don't have to interact with the page. You can 
 use the Console to try out new code that's not related to the page. For example, suppose you just learned
 about the built-in JavaScript Array method [`map()`][map]{: .external }, and you want to experiment with it.
-The Console is a good place to experiment.
+The Console is a good place to try out the function.
 
 See [Get Started With Running JavaScript](/web/tools/chrome-devtools/console/javascript) to get hands-on
 experience with running JavaScript in the Console.
