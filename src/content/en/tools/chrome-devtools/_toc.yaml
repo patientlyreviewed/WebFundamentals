@@ -117,8 +117,10 @@ toc:
   section:
   - title: Overview
     path: /web/tools/chrome-devtools/console/
-  - title: Get Started
-    path: /web/tools/chrome-devtools/console/get-started
+  - title: Log Messages
+    path: /web/tools/chrome-devtools/console/log
+  - title: Run JavaScript
+    path: /web/tools/chrome-devtools/console/javascript
   - title: Reference
     path: /web/tools/chrome-devtools/console/reference
   - title: API Reference
